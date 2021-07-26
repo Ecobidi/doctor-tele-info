@@ -60,19 +60,19 @@ app.use(function(req, res, next) {
   res.locals.home = req.session.home;
   res.locals.profile = req.session.profile;
   res.locals.logout = req.session.logout;
-  req.session.staff_user = {
-    "_id" : "60fd6bf36b716b1d1079fa6a",
-    "questions" : [ ],
-    "appointments" : [ ],
-    "username" : "doctor1",
-    "password" : "doctor1",
-    "email" : "ecobidi@gmail.com",
-    "surname" : "Obidi",
-    "otherName" : "Chukwudi",
-    "phone" : "9999992",
-    "address" : "20 Aba Road, PortHarcourt",
-    "__v" : 0
-}
+//   req.session.staff_user = {
+//     "_id" : "60fd6bf36b716b1d1079fa6a",
+//     "questions" : [ ],
+//     "appointments" : [ ],
+//     "username" : "doctor1",
+//     "password" : "doctor1",
+//     "email" : "ecobidi@gmail.com",
+//     "surname" : "Obidi",
+//     "otherName" : "Chukwudi",
+//     "phone" : "9999992",
+//     "address" : "20 Aba Road, PortHarcourt",
+//     "__v" : 0
+// }
   next();
 });
 
