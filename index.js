@@ -1,4 +1,5 @@
 const path = require("path");
+require("dotenv").config()
 const express = require("express");
 const expHbs = require("express-handlebars");
 const bodyParser = require("body-parser");
@@ -13,11 +14,22 @@ const patientRouter = require("./routes/patient");
 const staffRouter = require("./routes/staff");
 
 // mongoose connection
-mongoose.connect(config.dbPath);
+// mongoose.connect(config.dbPath);
 
-mongoose.connection.once("connected", () => console.log("Connected to database"));
+// mongoose.connection.once("connected", () => console.log("Connected to database"));
 
-mongoose.connection.on("error", (err) => console.log("Mongoose connection error: " + err));
+// mongoose.connection.on("error", (err) => console.log("Mongoose connection error: " + err));
+
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.qmunc.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+
+try {
+  mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+  console.log('connected to ' + process.env.DB_NAME + ' database.')
+} catch (error) {
+  console.log('Error connecting to ' + process.env.DB_NAME + ' database.')
+  console.log(error)
+}
+
 
 let app = express();
 
@@ -74,4 +86,4 @@ app.use("/staff", staffRouter);
 app.use(express.static(path.join(__dirname, "public")));
 
 // listen to port
-app.listen(config.PORT, () => { console.log(config.appName + " running on port " + config.PORT); });
+app.listen(process.env.PORT, () => { console.log(`${APPNAME} running on port ${process.env.PORT}`) })
