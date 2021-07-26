@@ -86,4 +86,4 @@ app.use("/staff", staffRouter);
 app.use(express.static(path.join(__dirname, "public")));
 
 // listen to port
-app.listen(process.env.PORT, () => { console.log(`${APPNAME} running on port ${process.env.PORT}`) })
+app.listen(process.env.PORT, () => { console.log(`Doctor Tele Information System running on port ${process.env.PORT}`) })
