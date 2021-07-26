@@ -1,0 +1,42 @@
+  <div class="row space">
+    <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+      <h3 class="title text-white">Patients</h3>
+    </div>
+  </div>
+
+  <div class="row space">
+    
+    <div class="col-12">
+      <h4 class="font-weight-light text-center text-white bg-success p-2 m-0 table-top">List of Patients</h4>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <td>Reg. No.</td>
+            <td>Name</td>
+            <td>Address</td>
+            <td>Phone</td>
+            <td>Gender</td>
+            <td>Blood Group</td>
+            <td>Genotype</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each patients }}
+            <tr>
+              <td>{{ this.patient_reg_no }}</td>
+              <td>{{ this.fullname }}</td>
+              <td>{{ this.address }}</td>
+              <td>{{ this.phone }}</td>
+              <td>{{ this.gender }}</td>
+              <td>{{ this.blood_group }}</td>
+              <td>{{ this.genotype }}</td>
+            </tr>
+          {{/each }}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</div>
+</div> 
